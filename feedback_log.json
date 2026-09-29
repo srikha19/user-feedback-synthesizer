@@ -1,0 +1,216 @@
+[
+  {
+    "customer": "sr",
+    "feedback": "The product search is very slow. It takes a long time to show results.",
+    "time": "2026-09-29T12:09:02",
+    "issue": "Slow product search performance",
+    "category": "Search functionality / Performance",
+    "sentiment": "negative",
+    "summary": "The customer reports that searching for products takes too long to display results."
+  },
+  {
+    "customer": "priya",
+    "feedback": "The checkout page takes too long to load, and sometimes the payment fails.",
+    "time": "2026-09-29T12:09:25",
+    "issue": "Checkout page loads slowly and payment sometimes fails.",
+    "category": "Checkout/Payment performance",
+    "sentiment": "negative",
+    "summary": "The customer experiences long load times on the checkout page and occasional payment failures."
+  },
+  {
+    "customer": "arjun",
+    "feedback": "The mobile app crashes whenever I try to open my order history.",
+    "time": "2026-09-29T12:09:50",
+    "issue": "App crashes when opening order history",
+    "category": "Mobile app – technical/stability issue (crash)",
+    "sentiment": "negative",
+    "summary": "The user cannot view order history because the app crashes each time they try to open it."
+  },
+  {
+    "customer": "Rahul Sharma",
+    "feedback": "Product search is painfully slow. It takes about 8 seconds to show results and I often give up.",
+    "channel": "App Review",
+    "date": "2026-08-25",
+    "time": "2026-09-29T13:09:18",
+    "issue": "Slow product search (≈8 seconds per query)",
+    "category": "Performance – Search speed",
+    "sentiment": "negative",
+    "summary": "The search function is painfully slow, often leading users to abandon their attempts."
+  },
+  {
+    "customer": "Priya Nair",
+    "feedback": "Search keeps timing out when I filter by category. This is blocking my team's daily work.",
+    "channel": "Support Ticket",
+    "date": "2026-08-27",
+    "time": "2026-09-29T13:09:23",
+    "issue": "Search times out when filtering by category.",
+    "category": "Search performance issue",
+    "sentiment": "negative",
+    "summary": "The search function fails with timeouts during category filtering, blocking the team's daily workflow."
+  },
+  {
+    "customer": "Arjun Mehta (Acme Corp)",
+    "feedback": "We love the dashboards, but search performance is the main reason we are hesitating to renew our contract.",
+    "channel": "Sales Call",
+    "date": "2026-08-29",
+    "time": "2026-09-29T13:09:28",
+    "issue": "Search performance",
+    "category": "Product performance – Search functionality",
+    "sentiment": "negative",
+    "summary": "They appreciate the dashboards but the slow/poor search performance is causing them to reconsider renewing the contract."
+  },
+  {
+    "customer": "Sneha Reddy",
+    "feedback": "Search is too slow on mobile. Please fix it, my customers are complaining to me.",
+    "channel": "Email",
+    "date": "2026-09-01",
+    "time": "2026-09-29T13:09:34",
+    "issue": "Slow search performance on mobile",
+    "category": "Performance",
+    "sentiment": "negative",
+    "summary": "The customer reports that the mobile search function is sluggish, leading to complaints from their own customers, and asks for a fix."
+  },
+  {
+    "customer": "Vikram Singh",
+    "feedback": "Great design, but the search lag makes the app feel unusable. Two stars for now.",
+    "channel": "App Review",
+    "date": "2026-09-03",
+    "time": "2026-09-29T13:09:41",
+    "issue": "Search lag causing poor usability",
+    "category": "Performance / Search functionality",
+    "sentiment": "negative",
+    "summary": "The user appreciates the app’s design but finds the slow search performance makes the app feel unusable, resulting in a 2‑star rating."
+  },
+  {
+    "customer": "Ananya Iyer",
+    "feedback": "The onboarding was smooth and the support team was helpful. Search speed could be better.",
+    "channel": "Survey",
+    "date": "2026-09-05",
+    "time": "2026-09-29T13:09:46",
+    "issue": "Search speed is slow",
+    "category": "Performance",
+    "sentiment": "negative",
+    "summary": "Onboarding and support were praised, but the search function needs to be faster."
+  },
+  {
+    "customer": "Karan Patel",
+    "feedback": "Search results take forever to load for large catalogs. Third time I am reporting this.",
+    "channel": "Support Ticket",
+    "date": "2026-09-08",
+    "time": "2026-09-29T13:09:53",
+    "issue": "Slow loading of search results for large catalogs",
+    "category": "Performance – Search functionality",
+    "sentiment": "negative",
+    "summary": "The customer is repeatedly reporting that search results take excessively long to load when dealing with large product catalogs."
+  },
+  {
+    "customer": "Meera Joshi (Zenith Retail)",
+    "feedback": "Our biggest blocker is slow search. If it is not fixed this quarter we will evaluate competitors.",
+    "channel": "Sales Call",
+    "date": "2026-09-10",
+    "time": "2026-09-29T13:09:59",
+    "issue": "Slow search performance",
+    "category": "Product performance – Search functionality",
+    "sentiment": "negative",
+    "summary": "The customer identifies slow search as a critical blocker and warns they will look at competitors if it isn’t resolved this quarter."
+  },
+  {
+    "customer": "Rohit Verma",
+    "feedback": "Search is finally fast! Huge improvement, thank you. Really happy with the update.",
+    "channel": "App Review",
+    "date": "2026-09-20",
+    "time": "2026-09-29T13:10:11",
+    "issue": "Search speed was slow and is now fast.",
+    "category": "Performance",
+    "sentiment": "positive",
+    "summary": "The user is delighted with the faster search after the update."
+  },
+  {
+    "customer": "Sneha Reddy",
+    "feedback": "Thanks for fixing search, it works great now. My customers stopped complaining about it.",
+    "channel": "Email",
+    "date": "2026-09-21",
+    "time": "2026-09-29T13:10:16",
+    "issue": "Search functionality was not working properly.",
+    "category": "Bug fix / Search issue.",
+    "sentiment": "positive",
+    "summary": "The search problem was resolved, and customers are no longer complaining."
+  },
+  {
+    "customer": "Divya Menon",
+    "feedback": "Checkout keeps failing with a payment error when I use UPI. I tried three times and lost my cart.",
+    "channel": "Support Ticket",
+    "date": "2026-09-22",
+    "time": "2026-09-29T13:10:22",
+    "issue": "Checkout fails with a payment error when using UPI, causing loss of cart.",
+    "category": "Payment/Checkout Failure",
+    "sentiment": "negative",
+    "summary": "The user experienced repeated UPI payment errors during checkout, resulting in a lost cart."
+  },
+  {
+    "customer": "Amit Kulkarni",
+    "feedback": "Payment fails at checkout every time. Search is fast now but I cannot buy anything. One star.",
+    "channel": "App Review",
+    "date": "2026-09-23",
+    "time": "2026-09-29T13:10:29",
+    "issue": "Payment fails at checkout every time.",
+    "category": "Payment/Checkout problem.",
+    "sentiment": "negative",
+    "summary": "The user experiences consistent checkout payment failures, despite fast search, resulting in a one‑star rating."
+  },
+  {
+    "customer": "Arjun Mehta (Acme Corp)",
+    "feedback": "Search is much better and we are planning to renew, but our team hit payment failures during checkout and needs that fixed.",
+    "channel": "Sales Call",
+    "date": "2026-09-25",
+    "time": "2026-09-29T13:10:34",
+    "issue": "Payment failures during checkout",
+    "category": "Billing/Payment Issue",
+    "sentiment": "negative",
+    "summary": "Customer appreciates the improved search and plans to renew, but the team experienced payment failures at checkout that must be resolved."
+  },
+  {
+    "customer": "Neha Gupta",
+    "feedback": "Love the faster search. Checkout payment errors are frustrating though, please fix them soon.",
+    "channel": "Survey",
+    "date": "2026-09-26",
+    "time": "2026-09-29T13:10:41",
+    "issue": "Checkout payment errors",
+    "category": "Payment/Checkout problem",
+    "sentiment": "negative",
+    "summary": "Appreciates the faster search but is frustrated by payment errors during checkout and requests a fix."
+  },
+  {
+    "customer": "Karan Patel",
+    "feedback": "Search is much faster now, thanks. But checkout payment errors on UPI are happening for my team as well.",
+    "channel": "Support Ticket",
+    "date": "2026-09-27",
+    "time": "2026-09-29T13:10:46",
+    "issue": "Checkout payment errors on UPI",
+    "category": "Payment/Checkout",
+    "sentiment": "negative",
+    "summary": "Search is faster, but the team is still encountering UPI checkout failures."
+  },
+  {
+    "customer": "Meera Joshi (Zenith Retail)",
+    "feedback": "Search improved a lot and we are staying for now. Payment failures at checkout are our new top concern.",
+    "channel": "Email",
+    "date": "2026-09-28",
+    "time": "2026-09-29T13:10:51",
+    "issue": "Payment failures at checkout",
+    "category": "Checkout/Payment issues",
+    "sentiment": "negative",
+    "summary": "While pleased with improved search and staying with us, the customer is now worried about frequent payment failures during checkout."
+  },
+  {
+    "customer": "Divya Menon",
+    "feedback": "UPI payments are still failing at checkout after the last update. This is the second time this week and I lost my cart again. I may switch to a competitor if this is not fixed soon.",
+    "channel": "Support Ticket",
+    "date": "2026-09-29",
+    "time": "2026-09-29T13:26:42",
+    "issue": "UPI payments failing at checkout, causing cart loss.",
+    "category": "Checkout & Payments",
+    "sentiment": "negative",
+    "summary": "Repeated UPI checkout failures after recent update are causing lost carts and may drive the customer to a competitor."
+  }
+]

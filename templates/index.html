@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Feedback Synthesizer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div>
+            <h1>User Feedback Synthesizer</h1>
+            <p>AI-powered customer feedback intelligence with Hindsight memory</p>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <nav class="tabs">
+            <button class="tab active" onclick="showSection('feedbackSection', this)">
+                Add Feedback
+            </button>
+
+            <button class="tab" onclick="showSection('chatSection', this)">
+                Feedback Chat
+            </button>
+
+            <button class="tab" onclick="showSection('insightsSection', this)">
+                Insights
+            </button>
+        </nav>
+
+
+        <!-- ADD FEEDBACK -->
+
+        <section id="feedbackSection" class="section active">
+
+            <div class="card">
+
+                <h2>Analyze Customer Feedback</h2>
+
+                <p class="description">
+                    Add feedback from any channel, or log a product change. Everything is remembered in Hindsight.
+                </p>
+
+                <label>Channel</label>
+
+                <select id="channel">
+                    <option>App Review</option>
+                    <option>Support Ticket</option>
+                    <option>Sales Call</option>
+                    <option>Email</option>
+                    <option>Survey</option>
+                    <option>Product Update</option>
+                </select>
+
+                <label>Customer Name</label>
+
+                <input
+                    type="text"
+                    id="customer"
+                    placeholder="Example: Rahul (leave empty for a product update)"
+                >
+
+                <label>Customer Feedback / Product Change</label>
+
+                <textarea
+                    id="feedback"
+                    rows="6"
+                    placeholder="Example: The product search is very slow. It takes too long to find products."
+                ></textarea>
+
+                <button class="primary-btn" onclick="analyzeFeedback()">
+                    Analyze & Remember
+                </button>
+
+                <div id="analysisResult" class="result hidden">
+
+                    <h3>AI Analysis</h3>
+
+                    <div id="analysisText"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEEDBACK CHAT -->
+
+        <section id="chatSection" class="section">
+
+            <div class="card">
+
+                <h2>Ask Your Feedback Agent</h2>
+
+                <p class="description">
+                    Compare a generic AI answer with an answer powered by Hindsight memory.
+                </p>
+
+                <div class="example-questions">
+
+                    <button onclick="useQuestion('What are customers saying about search, and did our search update help?')">
+                        Did the search fix work?
+                    </button>
+
+                    <button onclick="useQuestion('What are the most common customer complaints across all channels?')">
+                        Common complaints
+                    </button>
+
+                    <button onclick="useQuestion('What new problems appeared after our latest product change?')">
+                        New problems
+                    </button>
+
+                    <button onclick="useQuestion('Which customers are most at risk of leaving and why?')">
+                        At-risk customers
+                    </button>
+
+                </div>
+
+                <textarea
+                    id="question"
+                    rows="4"
+                    placeholder="Ask something about customer feedback..."
+                ></textarea>
+
+                <button class="primary-btn" onclick="askAgent()">
+                    Ask Agent
+                </button>
+
+                <div id="chatResult" class="result hidden">
+
+                    <div class="compare">
+
+                        <div class="compare-box">
+                            <h3>Without memory</h3>
+                            <div id="answerNoMemory" class="answer-body"></div>
+                        </div>
+
+                        <div class="compare-box highlight">
+                            <h3>With Hindsight memory</h3>
+                            <div id="answerText" class="answer-body"></div>
+                        </div>
+
+                    </div>
+
+                    <h4 class="memories-title">Memories recalled from Hindsight</h4>
+
+                    <div id="memoriesList"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INSIGHTS -->
+
+        <section id="insightsSection" class="section">
+
+            <div class="card">
+
+                <h2>Feedback Insights</h2>
+
+                <p class="description">
+                    Understand recurring customer problems and trends.
+                </p>
+
+                <div class="stats">
+
+                    <div class="stat-card">
+                        <span class="stat-number" id="statTotal">0</span>
+                        <span class="stat-label">Feedback Stored</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-number" id="statIssues">0</span>
+                        <span class="stat-label">Issue Categories</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-number" id="statNegative">0%</span>
+                        <span class="stat-label">Negative Sentiment</span>
+                    </div>
+
+                </div>
+
+                <div id="issuesList"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function showSection(sectionId, button) {
+
+            document.querySelectorAll(".section").forEach(section => {
+                section.classList.remove("active");
+            });
+
+            document.getElementById(sectionId).classList.add("active");
+
+            document.querySelectorAll(".tab").forEach(tab => {
+                tab.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            if (sectionId === "insightsSection") {
+                loadInsights();
+            }
+        }
+
+
+        async function analyzeFeedback() {
+
+            const customer = document.getElementById("customer").value;
+            const feedback = document.getElementById("feedback").value;
+            const channel = document.getElementById("channel").value;
+
+            if (!feedback.trim()) {
+                alert("Please enter customer feedback.");
+                return;
+            }
+
+            const button = document.querySelector("#feedbackSection .primary-btn");
+            button.disabled = true;
+            button.innerText = "Analyzing...";
+
+            try {
+
+                const response = await fetch("/analyze", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        customer: customer,
+                        feedback: feedback,
+                        channel: channel
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!data.success) {
+                    alert(data.error);
+                    return;
+                }
+
+                document.getElementById("analysisResult").classList.remove("hidden");
+                document.getElementById("analysisText").innerText = data.analysis;
+
+            } catch (error) {
+                alert("Something went wrong. Please try again.");
+                console.error(error);
+            } finally {
+                button.disabled = false;
+                button.innerText = "Analyze & Remember";
+            }
+        }
+
+
+        async function askAgent() {
+
+            const question = document.getElementById("question").value;
+
+            if (!question.trim()) {
+                alert("Please enter a question.");
+                return;
+            }
+
+            const button = document.querySelector("#chatSection .primary-btn");
+            button.disabled = true;
+            button.innerText = "Thinking...";
+
+            try {
+
+                const response = await fetch("/ask", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question: question })
+                });
+
+                const data = await response.json();
+
+                if (!data.success) {
+                    alert(data.error);
+                    return;
+                }
+
+                document.getElementById("chatResult").classList.remove("hidden");
+                document.getElementById("answerText").innerText = data.answer;
+                document.getElementById("answerNoMemory").innerText = data.answer_without_memory || "";
+
+                const list = document.getElementById("memoriesList");
+                list.innerHTML = "";
+
+                (data.memories || []).forEach(text => {
+                    const item = document.createElement("div");
+                    item.className = "memory-item";
+                    item.innerText = text;
+                    list.appendChild(item);
+                });
+
+            } catch (error) {
+                alert("Something went wrong. Please try again.");
+                console.error(error);
+            } finally {
+                button.disabled = false;
+                button.innerText = "Ask Agent";
+            }
+        }
+
+
+        function useQuestion(question) {
+            document.getElementById("question").value = question;
+        }
+
+
+        async function loadInsights() {
+
+            try {
+
+                const response = await fetch("/insights");
+                const data = await response.json();
+
+                if (!data.success) return;
+
+                document.getElementById("statTotal").innerText = data.total;
+                document.getElementById("statIssues").innerText = data.issues_detected;
+                document.getElementById("statNegative").innerText = data.negative_pct + "%";
+
+                const list = document.getElementById("issuesList");
+                list.innerHTML = "";
+
+                if (!data.groups.length) {
+                    const empty = document.createElement("p");
+                    empty.className = "description";
+                    empty.innerText = "No feedback yet. Add some feedback to see insights.";
+                    list.appendChild(empty);
+                    return;
+                }
+
+                data.groups.forEach(group => {
+
+                    const card = document.createElement("div");
+                    card.className = "issue-card";
+
+                    const title = document.createElement("h3");
+                    title.innerText = "🔎 " + group.category + " (" + group.count + ")";
+
+                    const text = document.createElement("p");
+                    text.innerText = group.examples.join(" • ");
+
+                    const badge = document.createElement("span");
+                    badge.className = "badge";
+                    badge.innerText = group.count > 1 ? "Recurring Issue" : "Single Report";
+
+                    card.appendChild(title);
+                    card.appendChild(text);
+                    card.appendChild(badge);
+
+                    list.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        loadInsights();
+
+    </script>
+
+</body>
+</html>
