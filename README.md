@@ -159,3 +159,20 @@ Then add a new support ticket in **Add Feedback** (for example, a customer repor
 
 - MY NAME : srikha kommineni
 - TEAMMATE NAMES : sri durga raavi,kundanasahithi maddala,nikhath parveen shaik,sri vyshnavi
+##LINKEDIN POST LINKS
+https://lnkd.in/p/dWkXRdUs
+https://lnkd.in/p/di2nTNxD
+https://lnkd.in/p/d4xRBtvT
+https://lnkd.in/p/dhFbjJCA
+https://lnkd.in/p/gxb5Qu7A
+##ARTICLE LINKS
+https://dev.to/srikha19/building-a-customer-feedback-agent-that-learns-from-past-feedback-with-hindsight-16n
+https://dev.to/sridurga_raavi_d1436e6946/building-a-customer-support-agent-with-persistent-memory-1ak2
+https://dev.to/sri_vaishnavisomi_b40404/user-feedback-synthesizer-fdl
+https://dev.to/kundanasahithi_maddala_b5/user-feedback-synthesizer-48e1
+##REDDIT LINKS
+https://www.reddit.com/u/Simple_Dragonfly9559/s/CBAnv9lGOV
+https://www.reddit.com/u/srikha-19/s/RiQWbJNzwS
+https://www.reddit.com/r/aiagents/s/hi3GqhXcyT
+##YOUTUBE VIDEO LINK
+https://youtu.be/UZeYhynQV40?si=z8rVlet1pi0REaU4
